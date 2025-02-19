@@ -1,18 +1,26 @@
 export const Show = ({ element }) => {
 
-    return <>
-        <h2>Resultado</h2>
-        {element.map((pais, index) => {
-
-            return <div key={index}>
-                   <h1>País:{pais.name.common}</h1>
-                    <h3>Capital: {pais.capital ? pais.capital[0] : "No tiene capital"} </h3>
-                    <h3>Población: {pais.population}</h3>
-                    <img src={pais.flags.svg} heigt={50} alt="" />
-                  </div>
-        })}
-
-
-    </>
+    return (
+        <>
+            <h2 className="text-center my-4">Resultado</h2>
+            {element.map((pais, index) => {
+                return (
+                    <div key={index} class="card mb-3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{pais.name.common}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                Capital: {pais.capital ? pais.capital[0] : "No tiene capital"}
+                            </h6>
+                            <p class="card-text">Población: {pais.population}</p>
+                            <img src={pais.flags.svg} width={70} height= {50} alt="" />
+                        </div>
+                    </div>
+                );
+            })}
+        </>
+    );
+    
 
 }
+
+
